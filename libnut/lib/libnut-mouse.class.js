@@ -130,7 +130,7 @@ class MouseAction {
         });
     }
 }
-console.log('shared.Button', shared.Button);
+
 MouseAction.ButtonLookupMap = new Map([
     [shared.Button.LEFT, "left"],
     [shared.Button.MIDDLE, "middle"],

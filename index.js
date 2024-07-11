@@ -1,6 +1,6 @@
 
-const { mouse, straightTo, Point, up, down, right, left } = require('./rpa-robot-js/index')
-async function test() {
+const { mouse, straightTo, Point, up, down, right, left, pixelWithColor, RGBA, screen, sleep } = require('./rpa-robot-js/index')
+async function test1() {
     mouse.config.mouseSpeed = 2000
     await mouse.move(straightTo(new Point(100, 100)))
     mouse.config.mouseSpeed = 1000
@@ -13,4 +13,17 @@ async function test() {
     await mouse.move(left(800))
 
 }
-test()
+
+async function test2() {
+    const arr = await screen.findAll(pixelWithColor(new RGBA(240, 74, 62, 255)))
+    console.log('chenjing', arr)
+    for (const item of arr) {
+        await mouse.move(straightTo(item))
+        await sleep(50)
+    }
+    const width = await screen.width()
+    const height = await screen.height()
+    console.log(width, height)
+}
+// test1()
+test2()

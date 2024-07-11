@@ -32,7 +32,7 @@ const createMovementApi = (providerRegistry, lineHelper) => {
             // 等待目标点的异步解析
             const targetPoint = await target;
             // 检查目标点是否是Point类型
-            if (!(0, shared.isPoint)(targetPoint)) {
+            if (!shared.isPoint(targetPoint)) {
                 // 如果不是Point类型，抛出错误
                 throw Error(`straightTo requires a Point, but received ${JSON.stringify(targetPoint)}`);
             }

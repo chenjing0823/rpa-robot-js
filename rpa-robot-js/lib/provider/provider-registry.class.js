@@ -1,5 +1,17 @@
+
+const color_finder_class = require("./color/color-finder.class.js")
 class DefaultProviderRegistry {
     constructor() {
+        this.getImageFinder = () => {
+            if (this._imageFinder) {
+                return this._imageFinder;
+            }
+            const error = new Error(`No ImageFinder registered`);
+            throw error;
+        };
+        this.registerImageFinder = (value) => {
+            this._imageFinder = value;
+        };
         this.getMouse = () => {
             if (this._mouse) {
                 return this._mouse;
@@ -9,6 +21,36 @@ class DefaultProviderRegistry {
         };
         this.registerMouseProvider = (value) => {
             this._mouse = value;
+        };
+        this.getScreen = () => {
+            if (this._screen) {
+                return this._screen;
+            }
+            const error = new Error(`No ScreenProvider registered`);
+            throw error;
+        };
+        this.registerScreenProvider = (value) => {
+            this._screen = value;
+        };
+        this.getTextFinder = () => {
+            if (this._textFinder) {
+                return this._textFinder;
+            }
+            const error = new Error(`No TextFinder registered`);
+            throw error;
+        };
+        this.registerTextFinder = (value) => {
+            this._textFinder = value;
+        };
+        this.getColorFinder = () => {
+            if (this._colorFinder) {
+                return this._colorFinder;
+            }
+            const error = new Error(`No ColorFinder registered`);
+            throw error;
+        };
+        this.registerColorFinder = (value) => {
+            this._colorFinder = value;
         };
     }
     hasClipboard() {
@@ -53,9 +95,13 @@ class DefaultProviderRegistry {
 }
 
 const providerRegistry = new DefaultProviderRegistry();
+providerRegistry.registerColorFinder(new color_finder_class.default());
 
 const { DefaultMouseAction } = require("../../../libnut");
 providerRegistry.registerMouseProvider(new DefaultMouseAction());
+
+const { DefaultScreenAction } = require("../../../libnut");
+providerRegistry.registerScreenProvider(new DefaultScreenAction())
 
 
 exports.default = providerRegistry;

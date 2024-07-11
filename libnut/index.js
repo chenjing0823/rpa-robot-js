@@ -7,7 +7,7 @@ const lib = require("./lib");
 exports.DefaultMouseAction = lib.MouseAction;
 
 // 导出屏幕动作
-// exports.DefaultScreenAction = lib.ScreenAction;
+exports.DefaultScreenAction = lib.ScreenAction;
 
 // 导出窗口动作
 // exports.DefaultWindowAction = lib.WindowAction;
