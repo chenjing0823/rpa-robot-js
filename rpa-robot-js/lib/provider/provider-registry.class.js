@@ -2,6 +2,16 @@
 const color_finder_class = require("./color/color-finder.class.js")
 class DefaultProviderRegistry {
     constructor() {
+        this.getClipboard = () => {
+            if (this._clipboard) {
+                return this._clipboard;
+            }
+            const error = new Error(`No ClipboardProvider registered`);
+            throw error;
+        };
+        this.registerClipboardProvider = (value) => {
+            this._clipboard = value;
+        };
         this.getImageFinder = () => {
             if (this._imageFinder) {
                 return this._imageFinder;
@@ -97,11 +107,20 @@ class DefaultProviderRegistry {
 const providerRegistry = new DefaultProviderRegistry();
 providerRegistry.registerColorFinder(new color_finder_class.default());
 
+const Clipboard = require("../../../default-clipboard-provider").default;
+providerRegistry.registerClipboardProvider(new Clipboard());
+
+// const { DefaultKeyboardAction } = require("../../../libnut");
+// providerRegistry.registerKeyboardProvider(new DefaultKeyboardAction());
+
 const { DefaultMouseAction } = require("../../../libnut");
 providerRegistry.registerMouseProvider(new DefaultMouseAction());
 
 const { DefaultScreenAction } = require("../../../libnut");
 providerRegistry.registerScreenProvider(new DefaultScreenAction())
+
+// const { DefaultWindowAction } = require("../../../libnut");
+// providerRegistry.registerWindowProvider(new DefaultWindowAction());
 
 
 exports.default = providerRegistry;

@@ -1,9 +1,14 @@
 ## RPA 
 可控制鼠标移动
 
-## 使用1 鼠标移动
+## 安装
 ```
-const { mouse, straightTo, Point, up, down, right, left } = require('./rpa-robot-js/index')
+npm install
+```
+
+## demo1 鼠标移动
+```
+const { mouse, straightTo, Point, up, down, right, left } = require('./rpa-robot-js')
 async function test1() {
     mouse.config.mouseSpeed = 2000 // 鼠标移动速度
     await mouse.move(straightTo(new Point(100, 100)))
@@ -20,9 +25,9 @@ async function test1() {
 test1()
 ```
 
-## 使用2 移动到指定颜色区域
+## demo2 移动到指定颜色区域
 ```
-const { pixelWithColor, RGBA, screen, sleep } = require('./rpa-robot-js/index')
+const { pixelWithColor, RGBA, screen, sleep } = require('./rpa-robot-js')
 async function test2() {
     const arr = await screen.findAll(pixelWithColor(new RGBA(240, 74, 62, 255)))
     console.log('chenjing', arr)
@@ -35,4 +40,18 @@ async function test2() {
     console.log(width, height)
 }
 test2()
+```
+
+## demo3 读取/写入 剪贴板
+```
+const { clipboard } = require('./rpa-robot-js')
+async function test3() {
+    const getContent = await clipboard.getContent()
+    console.log('读取剪贴板内容：', getContent)
+    await clipboard.setContent('将这段信息存到剪贴板')
+    
+    const getContent2 = await clipboard.getContent()
+    console.log('读取剪贴板--代码写入內容：', getContent2)
+}
+test3()
 ```

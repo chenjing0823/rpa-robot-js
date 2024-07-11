@@ -3,6 +3,9 @@ const shared = require("../shared")
 const { MouseClass } = require("./lib/mouse.class.js");
 const provider_registry_class = require("./lib/provider/provider-registry.class.js")
 const screen_class = require("./lib/screen.class.js");
+const clipboard_class = require("./lib/clipboard.class.js");
+const clipboard = new clipboard_class.ClipboardClass(provider_registry_class.default);
+exports.clipboard = clipboard;
 
 
 const movement_function = require("./lib/movement.function.js");
