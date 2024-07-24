@@ -22,6 +22,16 @@ class DefaultProviderRegistry {
         this.registerImageFinder = (value) => {
             this._imageFinder = value;
         };
+        this.getKeyboard = () => {
+            if (this._keyboard) {
+                return this._keyboard;
+            }
+            const error = new Error(`No KeyboardProvider registered`);
+            throw error;
+        };
+        this.registerKeyboardProvider = (value) => {
+            this._keyboard = value;
+        };
         this.getMouse = () => {
             if (this._mouse) {
                 return this._mouse;
@@ -110,8 +120,8 @@ providerRegistry.registerColorFinder(new color_finder_class.default());
 const Clipboard = require("../../../default-clipboard-provider").default;
 providerRegistry.registerClipboardProvider(new Clipboard());
 
-// const { DefaultKeyboardAction } = require("../../../libnut");
-// providerRegistry.registerKeyboardProvider(new DefaultKeyboardAction());
+const { DefaultKeyboardAction } = require("../../../libnut");
+providerRegistry.registerKeyboardProvider(new DefaultKeyboardAction());
 
 const { DefaultMouseAction } = require("../../../libnut");
 providerRegistry.registerMouseProvider(new DefaultMouseAction());

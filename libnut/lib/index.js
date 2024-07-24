@@ -1,6 +1,6 @@
 // 导入键盘动作类
-// const KeyboardAction = require("./libnut-keyboard.class").default;
-// exports.KeyboardAction = KeyboardAction;
+const KeyboardAction = require("./libnut-keyboard.class.js").default;
+exports.KeyboardAction = KeyboardAction;
 
 // 导入鼠标动作类
 const MouseAction = require("./libnut-mouse.class.js").default;

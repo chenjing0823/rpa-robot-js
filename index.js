@@ -11,7 +11,9 @@ const {
     RGBA,
     screen,
     sleep,
-    clipboard
+    clipboard,
+    keyboard,
+    Key
 } = require('./rpa-robot-js')
 async function test1() {
     mouse.config.mouseSpeed = 2000
@@ -50,4 +52,17 @@ async function test3() {
 
     // getContent
 }
-test3()
+// test3()
+async function test4() {
+    setTimeout(async () => {
+        await keyboard.pressKey(Key.A)
+        await keyboard.releaseKey(Key.A)
+        
+        await keyboard.type('HELLO WORLD')
+
+        await keyboard.pressKey(Key.LeftControl, Key.V)
+        await keyboard.releaseKey(Key.LeftControl, Key.V)
+    }, 3000)
+
+}
+test4()

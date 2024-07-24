@@ -55,3 +55,17 @@ async function test3() {
 }
 test3()
 ```
+## demo4 键盘输入
+```
+const { keyboard, Key } = require('./rpa-robot-js')
+async function test4() {
+    await keyboard.pressKey(Key.A)
+    await keyboard.releaseKey(Key.A)
+    
+    await keyboard.type('HELLO WORLD')
+
+    await keyboard.pressKey(Key.LeftControl, Key.V)
+    await keyboard.releaseKey(Key.LeftControl, Key.V)
+}
+test4()
+```

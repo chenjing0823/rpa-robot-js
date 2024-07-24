@@ -6,7 +6,9 @@ const screen_class = require("./lib/screen.class.js");
 const clipboard_class = require("./lib/clipboard.class.js");
 const clipboard = new clipboard_class.ClipboardClass(provider_registry_class.default);
 exports.clipboard = clipboard;
-
+const keyboard_class = require("./lib/keyboard.class.js");
+const keyboard = new keyboard_class.KeyboardClass(provider_registry_class.default);
+exports.keyboard = keyboard;
 
 const movement_function = require("./lib/movement.function.js");
 const linehelper_class = require("./lib/util/linehelper.class.js");
@@ -33,6 +35,7 @@ exports.Point = shared.Point;
 exports.RGBA = shared.RGBA;
 exports.Region = shared.Region;
 exports.Image = shared.Image;
+exports.Key = shared.Key;
 const screen = new screen_class.ScreenClass(provider_registry_class.default);
 exports.screen = screen;
 
