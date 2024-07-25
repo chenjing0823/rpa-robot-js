@@ -1,5 +1,4 @@
 const clipboardy = require('clipboardy');
-console.log(clipboardy);
 class default_1 {
     constructor() {
     }

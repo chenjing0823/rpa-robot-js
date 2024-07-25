@@ -28,7 +28,6 @@ class MouseClass {
             if (!Array.isArray(pathSteps)) {
                 pathSteps = [pathSteps];
             }
-            console.log(pathSteps)
             const timeSteps = mouse_movement_function.calculateMovementTimesteps(pathSteps.length, this.config.mouseSpeed, movementType);
             for (let idx = 0; idx < pathSteps.length; ++idx) {
                 const node = pathSteps[idx];
