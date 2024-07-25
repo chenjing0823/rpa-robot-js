@@ -12,7 +12,10 @@ exports.keyboard = keyboard;
 
 const movement_function = require("./lib/movement.function.js");
 const linehelper_class = require("./lib/util/linehelper.class.js");
-
+const window_function = require("./lib/window.function.js");
+const { getWindows, getActiveWindow } = window_function.createWindowApi(provider_registry_class.default)
+exports.getWindows = getWindows;
+exports.getActiveWindow = getActiveWindow;
 // 导出 MouseClass
 exports.MouseClass = MouseClass;
 exports.providerRegistry = provider_registry_class.default;

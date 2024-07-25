@@ -52,6 +52,26 @@ class DefaultProviderRegistry {
         this.registerScreenProvider = (value) => {
             this._screen = value;
         };
+        this.getWindow = () => {
+            if (this._window) {
+                return this._window;
+            }
+            const error = new Error(`No WindowProvider registered`);
+            throw error;
+        };
+        this.registerWindowProvider = (value) => {
+            this._window = value;
+        };
+        this.getWindowElementInspector = () => {
+            if (this._windowElementInspector) {
+                return this._windowElementInspector;
+            }
+            const error = new Error(`No WindowElementInspector registered`);
+            throw error;
+        };
+        this.registerWindowElementInspector = (value) => {
+            this._windowElementInspector = value;
+        };
         this.getTextFinder = () => {
             if (this._textFinder) {
                 return this._textFinder;
@@ -129,8 +149,11 @@ providerRegistry.registerMouseProvider(new DefaultMouseAction());
 const { DefaultScreenAction } = require("../../../libnut");
 providerRegistry.registerScreenProvider(new DefaultScreenAction())
 
-// const { DefaultWindowAction } = require("../../../libnut");
-// providerRegistry.registerWindowProvider(new DefaultWindowAction());
+const { DefaultWindowAction } = require("../../../libnut");
+providerRegistry.registerWindowProvider(new DefaultWindowAction());
+
+// const { DefaultWindowElementInspector } = require("../../../libnut");
+// providerRegistry.registerWindowElementInspector(new DefaultWindowElementInspector());
 
 
 exports.default = providerRegistry;

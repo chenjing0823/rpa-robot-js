@@ -11,5 +11,8 @@ const ScreenAction = require("./libnut-screen.class.js").default;
 exports.ScreenAction = ScreenAction;
 
 // 导入窗口动作类
-// const WindowAction = require("./libnut-window.class").default;
-// exports.WindowAction = WindowAction;
+const WindowAction = require("./libnut-window.class.js").default;
+exports.WindowAction = WindowAction;
+
+// const WindowElementInspector = require("./libnut-window-element.class.js").default;
+// exports.WindowElementInspector = WindowElementInspector;

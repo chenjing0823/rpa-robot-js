@@ -14,6 +14,8 @@ const {
     left,
     pixelWithColor,
     sleep,
+    getWindows,
+    getActiveWindow
 } = require('./rpa-robot-js')
 
 exports.mouse = mouse
@@ -30,3 +32,5 @@ exports.right = right
 exports.left = left
 exports.pixelWithColor = pixelWithColor
 exports.sleep = sleep
+exports.getWindows = getWindows
+exports.getActiveWindow = getActiveWindow

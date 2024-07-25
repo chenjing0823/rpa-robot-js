@@ -29,3 +29,8 @@ const isTextQuery = (possibleQuery) => {
 };
 
 exports.isTextQuery = isTextQuery;
+
+const isWindowElementQuery = (possibleQuery) => {
+    return (possibleQuery === null || possibleQuery === void 0 ? void 0 : possibleQuery.type) === "window-element";
+};
+exports.isWindowElementQuery = isWindowElementQuery;

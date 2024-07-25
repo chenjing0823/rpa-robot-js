@@ -10,4 +10,6 @@ exports.DefaultMouseAction = lib.MouseAction;
 exports.DefaultScreenAction = lib.ScreenAction;
 
 // 导出窗口动作
-// exports.DefaultWindowAction = lib.WindowAction;
+exports.DefaultWindowAction = lib.WindowAction;
+
+// exports.DefaultWindowElementInspector = lib.WindowElementInspector;
