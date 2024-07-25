@@ -7,11 +7,15 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "chenjing0823",
   "license": "ISC",
   "dependencies": {
     "bindings": "1.5.0",
     "clipboardy": "2.3.0",
     "jimp": "0.22.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenjing0823/rpa-robot-js"
   }
 }

@@ -3,12 +3,12 @@
 
 ## 安装
 ```
-npm install
+npm install rpa-robot-js
 ```
 
 ## demo1 鼠标移动
 ```
-const { mouse, straightTo, Point, up, down, right, left } = require('./rpa-robot-js')
+const { mouse, straightTo, Point, up, down, right, left } = require('rpa-robot-js')
 async function test1() {
     mouse.config.mouseSpeed = 2000 // 鼠标移动速度
     await mouse.move(straightTo(new Point(100, 100)))
@@ -27,7 +27,7 @@ test1()
 
 ## demo2 移动到指定颜色区域
 ```
-const { pixelWithColor, RGBA, screen, sleep } = require('./rpa-robot-js')
+const { pixelWithColor, RGBA, screen, sleep } = require('rpa-robot-js')
 async function test2() {
     const arr = await screen.findAll(pixelWithColor(new RGBA(240, 74, 62, 255)))
     console.log('chenjing', arr)
@@ -44,7 +44,7 @@ test2()
 
 ## demo3 读取/写入 剪贴板
 ```
-const { clipboard } = require('./rpa-robot-js')
+const { clipboard } = require('rpa-robot-js')
 async function test3() {
     const getContent = await clipboard.getContent()
     console.log('读取剪贴板内容：', getContent)
@@ -57,7 +57,7 @@ test3()
 ```
 ## demo4 键盘输入
 ```
-const { keyboard, Key } = require('./rpa-robot-js')
+const { keyboard, Key } = require('rpa-robot-js')
 async function test4() {
     await keyboard.pressKey(Key.A)
     await keyboard.releaseKey(Key.A)
